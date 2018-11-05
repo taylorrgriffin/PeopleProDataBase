@@ -58,4 +58,12 @@
   <ItemGroup>
     <Folder Include="Properties" />
   </ItemGroup>
+  <ItemGroup>
+    <Build Include="Employee.sql" />
+    <Build Include="Department.sql" />
+    <Build Include="Building.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Script.AddData.sql" />
+  </ItemGroup>
 </Project>
