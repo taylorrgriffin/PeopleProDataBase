@@ -9,35 +9,36 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-MERGE INTO Employee AS Target
-USING (VALUES
-	(1,'John','Doland'),
-	(2,'Fred','Dunbar'),
-	(3,'Eric','Johnson')
-) AS Source (EmployeeId, FirstName, LastName)
-ON Target.EmployeeId = Source.EmployeeId
-WHEN NOT MATCHED BY TARGET THEN
-INSERT (FirstName, LastName)
-VALUES (FirstName, LastName);
 
-MERGE INTO Building AS Target
-USING (VALUES
-	(1,'KEC'),
-	(2,'Johnson'),
-	(3,'Milne')
-) AS Source (BuildingId, BuildingName)
-ON Target.BuildingId = Source.BuildingId
-WHEN NOT MATCHED BY TARGET THEN
-INSERT (BuildingName)
-VALUES (BuildingName);
+--MERGE INTO Employee AS Target
+--USING (VALUES
+--	(1,'John','Doland',1),
+--	(2,'Fred','Dunbar',2),
+--	(3,'Eric','Johnson',3)
+--) AS Source (EmployeeId, FirstName, LastName,Departmentid)
+--ON Target.EmployeeId = Source.EmployeeId
+--WHEN NOT MATCHED BY TARGET THEN
+--INSERT (FirstName, LastName, DepartmentId)
+--VALUES (FirstName, LastName, DepartmentId);
 
-MERGE INTO Department AS Target
-USING (VALUES
-	(1,'Engineering'),
-	(2,'Ag'),
-	(3,'Biology')
-) AS Source (DepartmentId, DepartmentName)
-ON Target.DepartmentId = Source.DepartmentId
-WHEN NOT MATCHED BY TARGET THEN
-INSERT (DepartmentName)
-VALUES (DepartmentName);
+--MERGE INTO Building AS Target
+--USING (VALUES
+--	(1,'KEC'),
+--	(2,'Johnson'),
+--	(3,'Milne')
+--) AS Source (BuildingId, BuildingName)
+--ON Target.BuildingId = Source.BuildingId
+--WHEN NOT MATCHED BY TARGET THEN
+--INSERT (BuildingName)
+--VALUES (BuildingName);
+
+--MERGE INTO Department AS Target
+--USING (VALUES
+--	(1,'Engineering',1),
+--	(2,'Ag',2),
+--	(3,'Biology',3)
+--) AS Source (DepartmentId, DepartmentName, BuildingId)
+--ON Target.DepartmentId = Source.DepartmentId
+--WHEN NOT MATCHED BY TARGET THEN
+--INSERT (DepartmentName, BuildingId)
+--VALUES (DepartmentName, BuildingId);
